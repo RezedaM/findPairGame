@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-black.woff") format("woff");
+  font-weight: "black";
+  font-style: normal;
+}
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-bold.woff") format("woff");
+  font-weight: "bold";
+  font-style: normal;
+}
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-extralight.woff") format("woff");
+  font-weight: "extralight";
+  font-style: normal;
+}
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-light.woff") format("woff");
+  font-weight: "light";
+  font-style: normal;
+}
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-medium.woff") format("woff");
+  font-weight: "medium";
+  font-style: normal;
+}
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-regular.woff") format("woff");
+  font-weight: "regular";
+  font-style: normal;
+}
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-semibold.woff") format("woff");
+  font-weight: "semibold";
+  font-style: normal;
+}
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-semilight.woff") format("woff");
+  font-weight: "semilight";
+  font-style: normal;
+}
+@font-face {
+  font-family: "statosskyeng";
+  src: url("./Web_fonts/stratosskyengweb-thin.woff") format("woff");
+  font-weight: "thin";
+  font-style: normal;
+}
+.game {
+  width: 1024px;
+  height: 774px;
+  background: #004980;
+}
+.game_lvl {
+  position: absolute;
+  width: 480px;
+  height: 459px;
+  background: #C2F5FF;
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 158px;
+  margin-left: 272px;
+}
+.game_lvl-title {
+  font-family: "statosskyeng";
+  font-weight: medium;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  color: #004980;
+  width: 208px;
+  height: 96px;
+}
+.game_lvl-dif {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 24px;
+}
+.game_lvl-inputs {
+  width: 98px;
+  height: 98px;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+.game_lvl-label {
+  display: flex;
+  font-family: "stratosskyeng";
+  font-size: 64px;
+  line-height: 72px;
+  color: #0080C1;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 98px;
+  height: 98px;
+}
+.game_lvl-input {
+  display: none;
+}
+.game_lvl-btn {
+  width: 246px;
+  height: 50px;
+  background: #7AC100;
+  border-radius: 12px;
+  font-family: "statosskyeng";
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=style.css.map */

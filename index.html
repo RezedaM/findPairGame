@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIND PAIR</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <section class="game">
+
+    </section>
+
+<script>
+    window.application = {
+    blocks: {},
+    screens: {},
+    renderScreen: function (screenName) {
+                window.application.timers.forEach(element => {
+                    clearInterval(element);
+                });
+
+                if (!window.application.screens[screenName]) {
+                    console.warn('Такой страницы нет');
+                } else {
+                    app.innerHTML = '';
+                    this.screens[screenName];
+                }     
+    },
+    timers: []
+}
+
+</script>   
+<script src="./lib/template-engine.js"></script> 
+<script src="./mainScreen.js"></script>
+<script>
+    const gameWindow = document.querySelector('.game');
+
+    window.application.screens.mainScreen(gameWindow);
+
+    const form = document.querySelector('.game_lvl');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        //coming soon
+
+    });
+    
+
+</script>
+</body>
+</html>

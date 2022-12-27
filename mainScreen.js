@@ -28,6 +28,8 @@ let template =  ({
                                         attrs: {
                                             type: 'radio',
                                             id: 1,
+                                            value: 1,
+                                            name: 'lvl',
                                         },
                                     },
                                 ],
@@ -48,6 +50,8 @@ let template =  ({
                                         attrs: {
                                             type: 'radio',
                                             id: 2,
+                                            value: 2,
+                                            name: 'lvl',
                                         },
                                     },
                                 ],
@@ -68,6 +72,8 @@ let template =  ({
                                         attrs: {
                                             type: 'radio',
                                             id: 3,
+                                            value: 3,
+                                            name: 'lvl',
                                         },
                                     },
                                 ],

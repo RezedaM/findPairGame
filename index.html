@@ -38,9 +38,8 @@
 </script>   
 <script src="./lib/template-engine.js"></script> 
 <script src="./mainScreen.js"></script>
-<script src="./screenLight.js"></script>
-<script src="./screenMedium.js"></script>
-<script src="./screenHard.js"></script>
+<script src="./screenGame.js"></script>
+
 <script>
     const gameWindow = document.querySelector('.game');
 
@@ -49,51 +48,15 @@
     const form = document.querySelector('.game_lvl');
     const inputs = document.querySelectorAll('.game_lvl-input');
 
-    function goToChosenLvl(lvl) {
-
-        if (lvl == 1) {
-            // window.application.renderScreen(screenLight);
-            window.application.screens.screenLight(gameWindow);
-        } else if (lvl == 2) {
-            window.application.screens.screenMedium(gameWindow);
-            // window.application.renderScreen(screenMedium);
-        } else {
-            // window.application.renderScreen(screenHard);
-            window.application.screens.screenHard(gameWindow);
-        }
-
-    }
-
-    // function putColorAtLvlButton(lvl) {
-
-    //     let checkedInputLabel = document.querySelector(`[for="${lvl}"]`);
-    //     checkedInputLabel.classList.add('active');
-       
-    // }
-    // inputs.forEach(element => {
-    //     debugger
-    //     element.addEventListener('change', (event) => {
-    //     event.preventDefault();
-    //     let goToLvl = form.elements["lvl"].value;
-    //     goToChosenLvl(goToLvl);  
-    // });
-    // });
-
-    // inputs.addEventListener('change', (event) => {
-    //     event.preventDefault();
-    //     let goToLvl = form.elements["lvl"].value;
-    //     goToChosenLvl(goToLvl);
-       
-    // });
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
 
         let goToLvl = form.elements["lvl"].value;
         console.log(form.elements["lvl"].value);
-      
-        
-        goToChosenLvl(goToLvl);
+        window.application.lvl = goToLvl;
+
+        window.application.screens.screenGame(gameWindow);
         
 
 

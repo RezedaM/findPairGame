@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    
 }
 
 @font-face {
@@ -58,17 +59,35 @@
     font-style: normal;
 }
   
-
-.game {
-    width: 1024px;
-    height: 774px;
+.body {
     background: #004980;
 
+}
+
+.game {
+    // width: 100%;
+    // height: 100%;
+    background: #004980;
+    // position: relative;
+    // margin: 0 auto;
+    // margin-left: auto;
+    // margin-right: auto;
+    
+
     &_lvl {
+
+        // position: relative;
+        // margin-left: auto;
+        // margin-right: auto;
+        // margin-top: 40%;
         position: absolute;
+        left: 40%; /* Положение слоя от левого края */
+        top: 40%;
+       
+
         width: 480px;
         height: 459px;
-        background: #C2F5FF;
+        background-color: #C2F5FF;
         border-radius: 12px;
         box-sizing: border-box;
         display: flex;
@@ -76,8 +95,8 @@
         align-items: center;
         justify-content: center;
         gap: 48px;
-        margin-top: 158px;
-        margin-left: 272px;
+        // margin-top: 158px;
+        // margin-left: 272px;
         &-title {
             font-family: 'statosskyeng';
             font-weight: medium ;
@@ -132,3 +151,16 @@
 
     }
 }
+
+.game_lvl-inputs:hover {
+    box-sizing: border-box;
+    outline: 3px solid #248ad7;
+    border-radius: 14px;
+    transition: .1s;
+  }
+
+  .active {
+    color: aliceblue;
+  }
+  
+  

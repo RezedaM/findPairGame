@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body>
+<body class="body">
 
     <section class="game">
 
@@ -16,8 +16,9 @@
 
 <script>
     window.application = {
-    blocks: {},
+    status: {},
     screens: {},
+    lvl: [],
     renderScreen: function (screenName) {
                 window.application.timers.forEach(element => {
                     clearInterval(element);
@@ -30,21 +31,34 @@
                     this.screens[screenName];
                 }     
     },
+    selectedCards: [],
     timers: []
 }
 
 </script>   
 <script src="./lib/template-engine.js"></script> 
 <script src="./mainScreen.js"></script>
+<script src="./screenGame.js"></script>
+
 <script>
     const gameWindow = document.querySelector('.game');
 
     window.application.screens.mainScreen(gameWindow);
 
     const form = document.querySelector('.game_lvl');
+    const inputs = document.querySelectorAll('.game_lvl-input');
+
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+
+        let goToLvl = form.elements["lvl"].value;
+        console.log(form.elements["lvl"].value);
+        window.application.lvl = goToLvl;
+
+        window.application.screens.screenGame(gameWindow);
+        
+
 
         //coming soon
 

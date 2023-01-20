@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FIND PAIR</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body class="body">
+        <section class="game">
+            <!-- <div class="game_playscreen">
+                <div class="game_header">
+                    <div class="game_timer">
+                        <div class="game_timer-min">
+                            <div class="game_timer-text">min</div>
+                            <div class="game_timer-minnum">00</div>
+                        </div>
+                        <div class="game_timer-comma">.</div>
+                        <div class="game_timer-sek">
+                            <div class="game_timer-text">sek</div>
+                            <div class="game_timer-seknum">00</div>
+                        </div>
+                    </div>
+                    <button class="game_lvl-btn">Начать заново</button>
+                </div>
+                <div class="game_field"></div>
+            </div> -->
+        </section>
+
+        <script>
+            window.application = {
+                status: {},
+                screens: {},
+                lvl: [],
+                renderScreen: function (screenName) {
+                    window.application.timers.forEach((element) => {
+                        clearInterval(element)
+                    })
+
+                    if (!window.application.screens[screenName]) {
+                        console.warn('Такой страницы нет')
+                    } else {
+                        app.innerHTML = ''
+                        this.screens[screenName]
+                    }
+                },
+                selectedCards: [],
+                timers: [],
+            }
+        </script>
+        <script src="./template-engine.js"></script>
+        <script src="./mainScreen.js"></script>
+        <script src="./screenGame.js"></script>
+        <script src="./cardDeck.js"></script>
+
+        <script>
+            // const gameField = document.querySelector('.game_field')
+            let howMuch = 36
+            // let card = {
+            //     img: './cards/cardBack.jpg',
+            // }
+            // let cards = [
+            //     {
+            //         img: './cards/one.jpeg',
+            //     },
+            //     {
+            //         img: './cards/2.jpeg',
+            //     },
+            //     {
+            //         img: './cards/3.jpeg',
+            //     },
+            //     {
+            //         img: './cards/4.jpeg',
+            //     },
+            //     {
+            //         img: './cards/5.jpeg',
+            //     },
+            //     {
+            //         img: './cards/6.jpeg',
+            //     },
+            //     {
+            //         img: './cards/7.jpeg',
+            //     },
+            //     {
+            //         img: './cards/8.jpeg',
+            //     },
+            //     {
+            //         img: './cards/9.jpeg',
+            //     },
+            // ]
+            // }
+
+            // let cardsGame = JSON.stringify(cards)
+            // console.log (cardsGame)
+            // const cardsGameDone = JSON.parse(cardsGame);
+            // console.log(cardsGameDone)
+
+            // {
+            //     img: './cards/cardBack.jpg',
+            // },
+
+            // for (let i = 0; i < cards.length; i++) {
+            //     // debugger
+            //     console.log(cards[i].img)
+            //     console.log(cardBackTemplate(cards[i]))
+            //     gameField.appendChild(templateEngine(cardBackTemplate(cards[i])))
+            // }
+
+            // const cardsGame = JSON.parse(cards)
+            // console.log(cardsGame)
+            // console.log (cards.map(cardBackTemplate))
+            // for (let i = 0; i < 4; i++) {
+            //     gameField.appendChild(
+            //         templateEngine(cards.map(cardBackTemplate))
+            //     )
+            // }
+            // gameField.appendChild(
+            //     templateEngine(cards.map(cardBackTemplate))
+            // )
+            // console.log(cards[0].img)
+            // function cardBackTemplate(bloc) {
+            //     return {
+            //         tag: 'div',
+            //         cls: 'game_field-cardback',
+            //         content: [
+            //             {
+            //                 tag: 'img',
+            //                 cls: 'game_field-cardimg',
+            //                 attrs: {
+            //                     src: bloc.img,
+            //                 },
+            //             },
+            //         ],
+            //     }
+            // }
+            const gameWindow = document.querySelector('.game')
+
+            window.application.screens.mainScreen(gameWindow)
+
+            const form = document.querySelector('.game_lvl')
+            const inputs = document.querySelectorAll('.game_lvl-input')
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault()
+
+                let goToLvl = form.elements['lvl'].value
+                console.log(form.elements['lvl'].value)
+                window.application.lvl = goToLvl
+
+                window.application.screens.screenGame(gameWindow)
+
+                //coming soon
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+{
+    "name": "findpaircards",
+    "version": "1.0.0",
+    "description": "memory game",
+    "main": "mainScreen.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier --write ./findpaircards/",
+        "lint:js": "eslint ./src/**/*.js",
+        "lint:scss": "stylelint ./src/**/*.scss",
+        "lint": "npm run lint:js && npm run lint:scss",
+        "prepare": "husky install"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RezedaM/findPairGame.git"
+    },
+    "author": "Rezeda Magizova",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/RezedaM/findPairGame/issues"
+    },
+    "homepage": "https://github.com/RezedaM/findPairGame#readme",
+    "devDependencies": {
+        "eslint": "^8.32.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "husky": "^8.0.3",
+        "prettier": "^2.8.3",
+        "stylelint": "^14.16.1",
+        "stylelint-config-prettier": "^9.0.4",
+        "stylelint-config-standard": "^29.0.0",
+        "stylelint-prettier": "^2.0.0"
+    },
+    "dependencies": {
+        "postcss": "^8.4.21",
+        "postcss-scss": "^4.0.6",
+        "stylelint-scss": "^4.3.0"
+    }
+}

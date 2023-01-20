@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -67,11 +66,11 @@
 }
 .game_lvl {
   position: absolute;
-  left: 40%; /* Положение слоя от левого края */
+  left: 40%;
   top: 40%;
   width: 480px;
   height: 459px;
-  background-color: #C2F5FF;
+  background-color: #c2f5ff;
   border-radius: 12px;
   box-sizing: border-box;
   display: flex;
@@ -99,7 +98,7 @@
 .game_lvl-inputs {
   width: 98px;
   height: 98px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 12px;
 }
 .game_lvl-label {
@@ -107,7 +106,7 @@
   font-family: "stratosskyeng";
   font-size: 64px;
   line-height: 72px;
-  color: #0080C1;
+  color: #0080c1;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -121,14 +120,83 @@
 .game_lvl-btn {
   width: 246px;
   height: 50px;
-  background: #7AC100;
+  background: #7ac100;
   border-radius: 12px;
   font-family: "statosskyeng";
+  color: white;
   font-size: 24px;
   line-height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.game_timer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.game_timer-min {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.game_timer-sek {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.game_timer-text {
+  font-family: "stratosskyengweb-light";
+  font-size: 16px;
+  line-height: 32px;
+  position: relative;
+  margin-bottom: -17px;
+  color: white;
+}
+.game_timer-minnum {
+  font-family: "stratosskyengweb-light";
+  font-size: 64px;
+  line-height: 72px;
+  color: white;
+}
+.game_timer-seknum {
+  font-family: "stratosskyengweb-light";
+  font-size: 64px;
+  line-height: 72px;
+  color: white;
+}
+.game_timer-comma {
+  font-family: "stratosskyengweb-light";
+  font-size: 64px;
+  line-height: 72px;
+  color: white;
+}
+.game_header {
+  display: flex;
+  flex-direction: row;
+  width: 978px;
+  justify-content: space-between;
+  align-items: center;
+}
+.game_field {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 978px;
+}
+.game_field-cardback {
+  width: 95px;
+  height: 133px;
+}
+.game_field-cardimg {
+  width: 95px;
+  height: 133px;
+}
+.game_playscreen {
+  position: absolute;
+  left: 10%;
+  top: 10%;
 }
 
 .game_lvl-inputs:hover {

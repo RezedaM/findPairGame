@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-black.woff') format('woff');
+    font-weight: 'black';
+    font-style: normal;
+}
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-bold.woff') format('woff');
+    font-weight: 'bold';
+    font-style: normal;
+}
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-extralight.woff') format('woff');
+    font-weight: 'extralight';
+    font-style: normal;
+}
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-light.woff') format('woff');
+    font-weight: 'light';
+    font-style: normal;
+}
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-medium.woff') format('woff');
+    font-weight: 'medium';
+    font-style: normal;
+}
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-regular.woff') format('woff');
+    font-weight: 'regular';
+    font-style: normal;
+}
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-semibold.woff') format('woff');
+    font-weight: 'semibold';
+    font-style: normal;
+}
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-semilight.woff') format('woff');
+    font-weight: 'semilight';
+    font-style: normal;
+}
+@font-face {
+    font-family: 'statosskyeng';
+    src: url('./Web_fonts/stratosskyengweb-thin.woff') format('woff');
+    font-weight: 'thin';
+    font-style: normal;
+}
+
+.body {
+    background: #004980;
+}
+
+.game {
+    background: #004980;
+
+    &_lvl {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+
+        width: 480px;
+        height: 459px;
+        background-color: #c2f5ff;
+        border-radius: 12px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        &-title {
+            font-family: 'statosskyeng';
+            font-weight: medium;
+            font-size: 40px;
+            line-height: 48px;
+            text-align: center;
+            color: #004980;
+            width: 208px;
+            height: 96px;
+        }
+        &-dif {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 24px;
+        }
+        &-inputs {
+            width: 98px;
+            height: 98px;
+            background: #ffffff;
+            border-radius: 12px;
+        }
+        &-label {
+            display: flex;
+            font-family: 'stratosskyeng';
+            font-size: 64px;
+            line-height: 72px;
+            color: #0080c1;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 98px;
+            height: 98px;
+        }
+        &-input {
+            display: none;
+        }
+        &-btn {
+            width: 246px;
+            height: 50px;
+            background: #7ac100;
+            border-radius: 12px;
+            font-family: 'statosskyeng';
+            color: white;
+            font-size: 24px;
+            line-height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &_timer {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        &-min {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        &-sek {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        &-text {
+            font-family: 'stratosskyengweb-light';
+            font-size: 16px;
+            line-height: 32px;
+            position: relative;
+            margin-bottom: -17px;
+            color: white;
+        }
+        &-minnum {
+            font-family: 'stratosskyengweb-light';
+            font-size: 64px;
+            line-height: 72px;
+            color: white;
+        }
+        &-seknum {
+            font-family: 'stratosskyengweb-light';
+            font-size: 64px;
+            line-height: 72px;
+            color: white;
+        }
+        &-comma {
+            font-family: 'stratosskyengweb-light';
+            font-size: 64px;
+            line-height: 72px;
+            color: white;
+        }
+    }
+    &_header {
+        display: flex;
+        flex-direction: row;
+        width: 978px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &_field {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 978px;
+        &-cardback {
+            width: 95px;
+            height: 133px;
+        }
+        &-cardimg {
+            width: 95px;
+            height: 133px;
+        }
+    }
+    &_playscreen {
+        position: absolute;
+        left: 10%;
+        top: 10%;
+    }
+}
+
+.game_lvl-inputs:hover {
+    box-sizing: border-box;
+    outline: 3px solid #248ad7;
+    border-radius: 14px;
+    transition: 0.1s;
+}
+
+.active {
+    color: aliceblue;
+}

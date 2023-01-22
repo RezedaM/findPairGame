@@ -1,0 +1,16 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "plugins": ["prettier"],
+    "parserOptions": {
+        "ecmaVersion": 2020
+    },
+    "rules": {
+        "prettier/prettier": "error",
+        "camelcase": ["error"],
+        "eqeqeq": ["error", "always"]
+    }
+}

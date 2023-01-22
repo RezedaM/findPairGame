@@ -1,9 +1,9 @@
 class PopUp {
     constructor(element) {
         if (!(element instanceof HTMLElement)) {
-            throw new Error('NOT HTML');
+            throw new Error('NOT HTML')
         }
 
-        this.element = element;
+        this.element = element
     }
 }

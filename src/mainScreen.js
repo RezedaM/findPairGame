@@ -95,6 +95,8 @@ let template = {
 
 function mainScreen(container) {
     container.innerHTML = ''
+    const result = document.querySelector('.result')
+    result.style.zIndex = '-1'
     container.appendChild(templateEngine(template))
 }
 

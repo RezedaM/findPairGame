@@ -1,4 +1,4 @@
-function looseScreen(container) {
+export function looseScreen(container) {
     container.style.zIndex = '2'
     const looseBlock = document.createElement('div')
     container.appendChild(looseBlock)

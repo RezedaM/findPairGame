@@ -93,7 +93,7 @@ let template = {
     ],
 }
 
-function mainScreen(container) {
+export function mainScreen(container) {
     container.innerHTML = ''
     const result = document.querySelector('.result')
     result.style.zIndex = '-1'

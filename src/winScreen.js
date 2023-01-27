@@ -1,4 +1,4 @@
-function winScreen(container) {
+export function winScreen(container) {
     container.style.zIndex = '2'
     const winBlock = document.createElement('div')
     container.appendChild(winBlock)

@@ -1,17 +1,20 @@
 // const gameWindow = document.querySelector('.game')
+export function gameStart() {
+    // window.application.screens.mainScreen(gameWindow)
 
-window.application.screens.mainScreen(gameWindow)
+    const form = document.querySelector('.game_lvl')
+    const inputs = document.querySelectorAll('.game_lvl-input')
 
-const form = document.querySelector('.game_lvl')
-const inputs = document.querySelectorAll('.game_lvl-input')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault()
+        let goToLvl = form.elements['lvl'].value
+        console.log(form.elements['lvl'].value)
+        window.application.lvl = goToLvl
+        goToLvl === ''
+            ? console.log('choose the lvl!')
+            : window.application.screens.screenGame(gameWindow)
+    })
+}
 
-    let goToLvl = form.elements['lvl'].value
-    console.log(form.elements['lvl'].value)
-    window.application.lvl = goToLvl
-    goToLvl === ''
-        ? console.log('choose the lvl!')
-        : window.application.screens.screenGame(gameWindow)
-})
+window.application.screens['gameStart'] = gameStart

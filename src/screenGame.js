@@ -81,7 +81,7 @@ let cardsHard = [
         data: 'nine',
     },
 ]
-function cardFrontTemplate(bloc) {
+export function cardFrontTemplate(bloc) {
     return {
         tag: 'div',
         cls: 'game_field-card',
@@ -105,7 +105,7 @@ function cardFrontTemplate(bloc) {
         ],
     }
 }
-function cardBackTemplate(bloc) {
+export function cardBackTemplate(bloc) {
     return {
         // tag: 'div',
         // cls: 'game_field-cardback',
@@ -120,7 +120,7 @@ function cardBackTemplate(bloc) {
         // ],
     }
 }
-function renderLvlScreen(container) {
+export function renderLvlScreen(container) {
     container.innerHTML = ''
     const gameScreen = document.createElement('div')
     gameScreen.classList.add('game_playscreen')

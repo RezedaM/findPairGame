@@ -35,7 +35,7 @@ module.exports = {
             filename: 'style.css',
         }),
         new CopyPlugin({
-            patterns: [{ from: './src/cards', to: 'static' }],
+            patterns: [{ from: './src/cards', to: 'cards' }],
         }),
         new HtmlWebpackPlugin({
             // filename: 'index1.html',

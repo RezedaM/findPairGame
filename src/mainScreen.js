@@ -1,3 +1,4 @@
+import { templateEngine } from './template-engine'
 let template = {
     tag: 'form',
     cls: 'game_lvl',
@@ -100,4 +101,4 @@ export function mainScreen(container) {
     container.appendChild(templateEngine(template))
 }
 
-window.application.screens['mainScreen'] = mainScreen
+// window.application.screens['mainScreen'] = mainScreen

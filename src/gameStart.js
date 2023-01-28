@@ -1,6 +1,7 @@
 // const gameWindow = document.querySelector('.game')
 export function gameStart() {
-    // window.application.screens.mainScreen(gameWindow)
+    const gameWindow = document.querySelector('.game')
+    window.application.screens.mainScreen(gameWindow)
 
     const form = document.querySelector('.game_lvl')
     const inputs = document.querySelectorAll('.game_lvl-input')
@@ -17,4 +18,4 @@ export function gameStart() {
     })
 }
 
-window.application.screens['gameStart'] = gameStart
+// window.application.screens['gameStart'] = gameStart

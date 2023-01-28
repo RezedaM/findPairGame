@@ -5,8 +5,8 @@ import { cardFrontTemplate } from './screenGame'
 import { cardBackTemplate } from './screenGame'
 import { renderLvlScreen } from './screenGame'
 import { winScreen } from './winScreen'
-import { gameStart, rwinScreen } from './gameStart'
-import { lgameStart } from './looseScreen'
+import { gameStart } from './gameStart'
+import { looseScreen } from './looseScreen'
 
 const gameWindow = document.querySelector('.game')
 window.application = {
@@ -30,7 +30,7 @@ window.application = {
 }
 
 window.application.screens['mainScreen'] = mainScreen
-window.application.screens.mainScreen(gameWindow)
+// window.application.screens.mainScreen(gameWindow)
 window.application.screens['gameStart'] = gameStart
 gameStart()
 

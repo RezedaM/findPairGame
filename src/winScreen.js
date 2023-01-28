@@ -42,10 +42,11 @@ export function winScreen(container) {
     resultFrameBtn.textContent = 'Играть снова'
 
     resultFrameBtn.addEventListener('click', () => {
+        let gameWindow = document.querySelector('.game')
         const result = document.querySelector('.result')
         result.innerHTML = ''
         window.application.screens.mainScreen(gameWindow)
     })
 }
 
-window.application.screens['winScreen'] = winScreen
+// window.application.screens['winScreen'] = winScreen

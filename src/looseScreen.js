@@ -42,10 +42,11 @@ export function looseScreen(container) {
     resultFrameBtn.textContent = 'Играть снова'
 
     resultFrameBtn.addEventListener('click', () => {
+        let gameWindow = document.querySelector('.game')
         const result = document.querySelector('.result')
         result.innerHTML = ''
         window.application.screens.mainScreen(gameWindow)
     })
 }
 
-window.application.screens['looseScreen'] = looseScreen
+// window.application.screens['looseScreen'] = looseScreen

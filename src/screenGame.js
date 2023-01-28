@@ -1,3 +1,4 @@
+import { templateEngine } from './template-engine'
 let card = {
     img: './cards/cardBack.jpg',
     data: 'back',
@@ -319,6 +320,7 @@ export function renderLvlScreen(container) {
     // timeGo()
 
     timerButton.addEventListener('click', () => {
+        let gameWindow = document.querySelector('.game')
         window.application.timers = min + '.' + secs
         timer = clearInterval(time)
         now = Date.now()
@@ -329,7 +331,7 @@ export function renderLvlScreen(container) {
     })
 }
 
-window.application.screens['screenGame'] = renderLvlScreen
+// window.application.screens['screenGame'] = renderLvlScreen
 
 // const allCardsArray = document.querySelectorAll('.game_field-card')
 // const checkForWin = setInterval(winFunc(), 1000)

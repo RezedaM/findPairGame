@@ -5,7 +5,10 @@
         "node": true
     },
     "plugins": ["prettier"],
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
+        "sourceType": "module",
+        "requireConfigFile": false,
         "ecmaVersion": 2020
     },
     "rules": {

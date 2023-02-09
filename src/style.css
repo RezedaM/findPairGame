@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -61,8 +62,20 @@
   background: #004980;
 }
 
+.game_sections {
+  position: relative;
+  width: 1035px;
+  height: 774px;
+}
+
 .game {
-  background: #004980;
+  position: absolute;
+  width: 1135px;
+  height: 774px;
+  background-image: url(./cards/backgroung.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
 }
 .game_lvl {
   position: absolute;
@@ -78,6 +91,7 @@
   align-items: center;
   justify-content: center;
   gap: 48px;
+  transform: translate(-25%, -35%);
 }
 .game_lvl-title {
   font-family: "statosskyeng";
@@ -182,21 +196,152 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 55px;
   width: 978px;
+  perspective: 1000px;
+  justify-content: space-between;
 }
 .game_field-cardback {
   width: 95px;
   height: 133px;
+  position: absolute;
+  border-radius: 5px;
+  border-radius: 5px;
+  background: #1c7ccc;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.game_field-cardfront {
+  width: 95px;
+  height: 133px;
+  position: absolute;
+  border-radius: 5px;
+  border-radius: 5px;
+  background: #1c7ccc;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: rotateY(180deg);
 }
 .game_field-cardimg {
   width: 95px;
   height: 133px;
 }
+.game_field-card {
+  position: relative;
+  width: 95px;
+  height: 133px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
 .game_playscreen {
   position: absolute;
   left: 10%;
   top: 10%;
+}
+
+.result {
+  position: relative;
+  width: 1035px;
+  height: 774px;
+}
+.result_field {
+  position: absolute;
+  width: 480px;
+  height: 459px;
+  background-color: #c2f5ff;
+  border-radius: 12px;
+  top: 50%;
+  transform: translate(66%, -50%);
+}
+.result_frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+.result_frame-win {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result_frame-loose {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result_frame-time {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.result_frame-img {
+  width: 96px;
+  height: 100px;
+  text-align: center;
+}
+.result_frame-youwin {
+  font-family: "statosskyeng";
+  font-weight: medium;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  color: #004980;
+}
+.result_frame-youloose {
+  font-family: "statosskyeng";
+  font-weight: medium;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  color: #004980;
+}
+.result_frame-timetxt {
+  font-family: "statosskyeng";
+  font-weight: medium;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+}
+.result_frame-timenum {
+  font-family: "statosskyeng";
+  font-weight: medium;
+  font-size: 64px;
+  line-height: 72px;
+  text-align: center;
+}
+.result_frame-btn {
+  width: 246px;
+  height: 50px;
+  background: #7ac100;
+  border-radius: 12px;
+  font-family: "statosskyeng";
+  color: white;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.result_field::after {
+  content: "";
+  background: url(./cards/backgroundcolor.jpg);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.game_field-card.flip {
+  transform: rotateY(180deg);
+}
+
+.game_field-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
 }
 
 .game_lvl-inputs:hover {

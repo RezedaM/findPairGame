@@ -8,20 +8,20 @@ import { winScreen } from './winScreen'
 import { gameStart } from './gameStart'
 import { looseScreen } from './looseScreen'
 
-const gameWindow = document.querySelector('.game')
+const gameWindow: HTMLElement | null = document.querySelector('.game')
 window.application = {
     status: {},
     screens: {},
     lvl: [],
-    renderScreen: function (screenName) {
-        window.application.timers.forEach((element) => {
+    renderScreen: function (screenName: string) {
+        window.application.timers.forEach((element: number) => {
             clearInterval(element)
         })
 
         if (!window.application.screens[screenName]) {
             console.warn('Такой страницы нет')
         } else {
-            gameWindow.innerHTML = ''
+            gameWindow!.innerHTML = ''
             this.screens[screenName]
         }
     },

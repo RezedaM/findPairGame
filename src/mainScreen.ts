@@ -1,4 +1,16 @@
 import { templateEngine } from './template-engine'
+interface Template {
+    tag: String
+    cls: String
+    attrs: {
+        type: String
+        id: Number
+        value: Number
+        name: String
+        for: Number
+    }
+    content: []
+}
 let template = {
     tag: 'form',
     cls: 'game_lvl',
@@ -94,10 +106,10 @@ let template = {
     ],
 }
 
-export function mainScreen(container) {
+export function mainScreen(container: HTMLElement) {
     container.innerHTML = ''
-    const result = document.querySelector('.result')
-    result.style.zIndex = '-1'
+    const result: HTMLElement | null = document.querySelector('.result')
+    result!.style.zIndex = '-1'
     container.appendChild(templateEngine(template))
 }
 

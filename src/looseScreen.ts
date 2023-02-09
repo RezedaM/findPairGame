@@ -1,7 +1,7 @@
-export function looseScreen(container) {
-    container.style.zIndex = '2'
+export function looseScreen(container: HTMLElement | null) {
+    container!.style.zIndex = '2'
     const looseBlock = document.createElement('div')
-    container.appendChild(looseBlock)
+    container!.appendChild(looseBlock)
     looseBlock.classList.add('result_field')
 
     const resultFrame = document.createElement('div')
@@ -44,7 +44,7 @@ export function looseScreen(container) {
     resultFrameBtn.addEventListener('click', () => {
         let gameWindow = document.querySelector('.game')
         const result = document.querySelector('.result')
-        result.innerHTML = ''
+        result!.innerHTML = ''
         window.application.screens.mainScreen(gameWindow)
     })
 }

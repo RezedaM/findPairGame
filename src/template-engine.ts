@@ -1,4 +1,17 @@
-export function templateEngine(block) {
+// interface Template {
+//     tag: String
+//     cls: String
+//     attrs: {
+//         type: String
+//         id: Number
+//         value: Number
+//         name: String
+//         for: Number
+//     }
+//     content: []
+// }
+
+export function templateEngine(block: any) {
     if (block === undefined || block === null || block === false) {
         return document.createTextNode('')
     }

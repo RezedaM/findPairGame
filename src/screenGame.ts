@@ -1,88 +1,171 @@
+import { stringify } from 'postcss'
 import { templateEngine } from './template-engine'
-let card = {
+
+interface Card {
+    img: String
+    data: String
+}
+let card: Card = {
     img: './cards/cardBack.jpg',
     data: 'back',
 }
+let cardsLight: Card[] = []
+cardsLight.push({
+    img: './cards/one.jpg',
+    data: 'one',
+})
+cardsLight.push({
+    img: './cards/2.jpg',
+    data: 'two',
+})
+cardsLight.push({
+    img: './cards/3.jpg',
+    data: 'three',
+})
 
-let cardsLight = [
-    {
-        img: './cards/one.jpg',
-        data: 'one',
-    },
-    {
-        img: './cards/2.jpg',
-        data: 'two',
-    },
-    {
-        img: './cards/3.jpg',
-        data: 'three',
-    },
-]
-let cardsMedium = [
-    {
-        img: './cards/one.jpg',
-        data: 'one',
-    },
-    {
-        img: './cards/2.jpg',
-        data: 'two',
-    },
-    {
-        img: './cards/3.jpg',
-        data: 'three',
-    },
-    {
-        img: './cards/4.jpg',
-        data: 'four',
-    },
-    {
-        img: './cards/5.jpg',
-        data: 'five',
-    },
-    {
-        img: './cards/6.jpg',
-        data: 'six',
-    },
-]
-let cardsHard = [
-    {
-        img: './cards/one.jpg',
-        data: 'one',
-    },
-    {
-        img: './cards/2.jpg',
-        data: 'two',
-    },
-    {
-        img: './cards/3.jpg',
-        data: 'three',
-    },
-    {
-        img: './cards/4.jpg',
-        data: 'four',
-    },
-    {
-        img: './cards/5.jpg',
-        data: 'five',
-    },
-    {
-        img: './cards/6.jpg',
-        data: 'six',
-    },
-    {
-        img: './cards/7.jpg',
-        data: 'seven',
-    },
-    {
-        img: './cards/8.jpg',
-        data: 'eight',
-    },
-    {
-        img: './cards/9.jpg',
-        data: 'nine',
-    },
-]
-export function cardFrontTemplate(bloc) {
+// let cardsLight = [
+//     {
+//         img: './cards/one.jpg',
+//         data: 'one',
+//     },
+//     {
+//         img: './cards/2.jpg',
+//         data: 'two',
+//     },
+//     {
+//         img: './cards/3.jpg',
+//         data: 'three',
+//     },
+// ]
+
+let cardsMedium: Card[] = []
+cardsMedium.push({
+    img: './cards/one.jpg',
+    data: 'one',
+})
+cardsMedium.push({
+    img: './cards/2.jpg',
+    data: 'two',
+})
+cardsMedium.push({
+    img: './cards/3.jpg',
+    data: 'three',
+})
+cardsMedium.push({
+    img: './cards/4.jpg',
+    data: 'four',
+})
+cardsMedium.push({
+    img: './cards/5.jpg',
+    data: 'five',
+})
+cardsMedium.push({
+    img: './cards/6.jpg',
+    data: 'six',
+})
+// let cardsMedium = [
+//     {
+//         img: './cards/one.jpg',
+//         data: 'one',
+//     },
+//     {
+//         img: './cards/2.jpg',
+//         data: 'two',
+//     },
+//     {
+//         img: './cards/3.jpg',
+//         data: 'three',
+//     },
+//     {
+//         img: './cards/4.jpg',
+//         data: 'four',
+//     },
+//     {
+//         img: './cards/5.jpg',
+//         data: 'five',
+//     },
+//     {
+//         img: './cards/6.jpg',
+//         data: 'six',
+//     },
+// ]
+
+let cardsHard: Card[] = []
+cardsHard.push(    {
+    img: './cards/one.jpg',
+    data: 'one',
+})
+cardsHard.push(    {
+    img: './cards/2.jpg',
+    data: 'two',
+})
+cardsHard.push(    {
+    img: './cards/3.jpg',
+    data: 'three',
+})
+cardsHard.push(    {
+    img: './cards/4.jpg',
+    data: 'four',
+})
+cardsHard.push(    {
+    img: './cards/5.jpg',
+    data: 'five',
+})
+cardsHard.push(    {
+    img: './cards/6.jpg',
+    data: 'six',
+})
+cardsHard.push(    {
+    img: './cards/7.jpg',
+    data: 'seven',
+})
+cardsHard.push(    {
+    img: './cards/8.jpg',
+    data: 'eight',
+})
+cardsHard.push(    {
+    img: './cards/9.jpg',
+    data: 'nine',
+})
+// let cardsHard = [
+//     {
+//         img: './cards/one.jpg',
+//         data: 'one',
+//     },
+//     {
+//         img: './cards/2.jpg',
+//         data: 'two',
+//     },
+//     {
+//         img: './cards/3.jpg',
+//         data: 'three',
+//     },
+//     {
+//         img: './cards/4.jpg',
+//         data: 'four',
+//     },
+//     {
+//         img: './cards/5.jpg',
+//         data: 'five',
+//     },
+//     {
+//         img: './cards/6.jpg',
+//         data: 'six',
+//     },
+//     {
+//         img: './cards/7.jpg',
+//         data: 'seven',
+//     },
+//     {
+//         img: './cards/8.jpg',
+//         data: 'eight',
+//     },
+//     {
+//         img: './cards/9.jpg',
+//         data: 'nine',
+//     },
+// ]
+export function cardFrontTemplate(bloc: Card) {
     return {
         tag: 'div',
         cls: 'game_field-card',
@@ -106,7 +189,7 @@ export function cardFrontTemplate(bloc) {
         ],
     }
 }
-export function cardBackTemplate(bloc) {
+export function cardBackTemplate(bloc: Card) {
     return {
         // tag: 'div',
         // cls: 'game_field-cardback',
@@ -121,11 +204,11 @@ export function cardBackTemplate(bloc) {
         // ],
     }
 }
-export function renderLvlScreen(container) {
-    container.innerHTML = ''
+export function renderLvlScreen(container: HTMLElement | null) {
+    container!.innerHTML = ''
     const gameScreen = document.createElement('div')
     gameScreen.classList.add('game_playscreen')
-    container.appendChild(gameScreen)
+    container!.appendChild(gameScreen)
     const header = document.createElement('div')
     header.classList.add('game_header')
     gameScreen.appendChild(header)
@@ -202,7 +285,7 @@ export function renderLvlScreen(container) {
     const gameFieldCard = document.querySelectorAll('.game_field-card')
     const result = document.querySelector('.result')
 
-    function flipForFiveSecond(callback) {
+    function flipForFiveSecond(callback: Function) {
         gameFieldCard.forEach((element) => {
             element.classList.add('flip')
         })
@@ -220,7 +303,7 @@ export function renderLvlScreen(container) {
 
     flipForFiveSecond(winFunc)
 
-    function flipCard() {
+    function flipCard(this: HTMLElement) {
         if (lockBoard) return
         if (this === firstCard) return
         this.classList.add('flip')
@@ -237,13 +320,13 @@ export function renderLvlScreen(container) {
     }
 
     function checkForMatch() {
-        let isMatch = firstCard.dataset.game === secondCard.dataset.game
+        let isMatch = firstCard!.dataset.game === secondCard!.dataset.game
         isMatch ? disableCards() : unflipCards()
     }
 
     function disableCards() {
-        firstCard.removeEventListener('click', flipCard)
-        secondCard.removeEventListener('click', flipCard)
+        firstCard!.removeEventListener('click', flipCard)
+        secondCard!.removeEventListener('click', flipCard)
         resetBoard()
     }
 
@@ -266,8 +349,8 @@ export function renderLvlScreen(container) {
     }
 
     ;(function shuffle() {
-        gameFieldCard.forEach((card) => {
-            let ramdomPos = Math.floor(Math.random() * 18)
+        gameFieldCard.forEach((card: any) => {
+            let ramdomPos: number = Math.floor(Math.random() * 18)
             card.style.order = ramdomPos
         })
     })()
@@ -278,33 +361,33 @@ export function renderLvlScreen(container) {
 
     let hasFlippedCard = false
     let lockBoard = false
-    let firstCard, secondCard
+    let firstCard: HTMLElement | null, secondCard: HTMLElement | null
 
     const timerMin = document.querySelector('.game_timer-minnum')
     const timerSek = document.querySelector('.game_timer-seknum')
     const timerButton = document.querySelector('.game_lvl-btn')
-    let timer = 0
+    let timer: number = 0 // : NodeJS.Timeout
     let secs = 0
     let now = 0
     let min = 0
     function time() {
         secs = Math.floor((Date.now() - now) / 1000)
-        if (min.length !== 2 && min < 10) {
-            min = '0' + min
+        if (String(min).length !== 2 && min < 10) {
+            (min as unknown as string)= '0' + min
         }
         if (secs === 60) {
             now = Date.now()
             min++
             if (min < 10) {
-                console.log(min)
-                min = '0' + min
+                // console.log(min)
+                (min as unknown as string) = '0' + min
             }
         }
         if (secs < 10) {
-            secs = '0' + secs
+            (secs as unknown as string) = '0' + secs
         }
-        timerMin.innerHTML = min
-        timerSek.innerHTML = secs
+        timerMin!.innerHTML = String(min)
+        timerSek!.innerHTML = String(secs)
         window.application.timers = min + '.' + secs
         // if (window.application.timers === '03.00') {
         //     window.application.status = 'Loose'
@@ -315,14 +398,14 @@ export function renderLvlScreen(container) {
     let timeGo = function () {
         now = Date.now()
         min = 0
-        timer = setInterval(time)
+        let timer: number = window.setInterval(time)
     }
     // timeGo()
 
-    timerButton.addEventListener('click', () => {
+    timerButton!.addEventListener('click', () => {
         let gameWindow = document.querySelector('.game')
         window.application.timers = min + '.' + secs
-        timer = clearInterval(time)
+        let timer: any = window.clearInterval(time as any)
         now = Date.now()
         min = 0
         timer = setInterval(time)

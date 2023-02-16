@@ -1,7 +1,7 @@
-export function winScreen(container) {
-    container.style.zIndex = '2'
+export function winScreen(container: HTMLElement | null) {
+    container!.style.zIndex = '2'
     const winBlock = document.createElement('div')
-    container.appendChild(winBlock)
+    container!.appendChild(winBlock)
     winBlock.classList.add('result_field')
 
     const resultFrame = document.createElement('div')
@@ -44,7 +44,7 @@ export function winScreen(container) {
     resultFrameBtn.addEventListener('click', () => {
         let gameWindow = document.querySelector('.game')
         const result = document.querySelector('.result')
-        result.innerHTML = ''
+        result!.innerHTML = ''
         window.application.screens.mainScreen(gameWindow)
     })
 }

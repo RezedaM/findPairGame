@@ -6,5 +6,6 @@
         "scss/at-rule-no-unknown": true,
         "scss/dollar-variable-pattern": "^foo",
         "scss/selector-no-redundant-nesting-selector": true
-    }
+    },
+    "ignoreFiles": ["coverage/lcov-report/base.css"]
 }

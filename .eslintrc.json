@@ -17,5 +17,5 @@
         "eqeqeq": ["error", "always"],
         "semi": 0
     },
-    "ignorePatterns": ["src/types/*"]
+    "ignorePatterns": ["src/types/*", "coverage/*"]
 }

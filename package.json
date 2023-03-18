@@ -7,7 +7,7 @@
         "lib": "lib"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest --setupFiles dotenv/config",
         "build": "NODE_ENV=production webpack",
         "start": "webpack-dev-server --open",
         "format": "prettier --write ./findpaircards/",
@@ -28,13 +28,26 @@
     },
     "homepage": "https://github.com/RezedaM/findPairGame#readme",
     "devDependencies": {
+        "@babel/core": "^7.21.3",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/preset-typescript": "^7.21.0",
+        "@jest/globals": "^29.5.0",
+        "@jridgewell/trace-mapping": "^0.3.17",
+        "@testing-library/dom": "^9.0.1",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@types/jest": "^29.5.0",
+        "@types/node": "^18.15.3",
+        "@types/webpack-env": "^1.18.0",
+        "babel-jest": "^29.5.0",
         "css-loader": "^6.7.3",
         "css-minimizer-webpack-plugin": "^4.2.2",
+        "dotenv": "^16.0.3",
         "eslint": "^8.32.0",
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-prettier": "^4.2.1",
         "html-webpack-plugin": "^5.5.0",
         "husky": "^8.0.3",
+        "jest": "^29.5.0",
         "mini-css-extract-plugin": "^2.7.2",
         "node-sass": "^8.0.0",
         "prettier": "^2.8.3",
@@ -44,6 +57,7 @@
         "stylelint-config-prettier": "^9.0.4",
         "stylelint-config-standard": "^29.0.0",
         "stylelint-prettier": "^2.0.0",
+        "ts-jest": "^29.0.5",
         "ts-loader": "^9.4.2",
         "typescript": "^4.9.5",
         "webpack": "^5.75.0",
@@ -56,7 +70,9 @@
         "copy-webpack-plugin": "^11.0.0",
         "postcss": "^8.4.21",
         "postcss-scss": "^4.0.6",
-        "stylelint-scss": "^4.3.0"
+        "source-map-support": "^0.5.21",
+        "stylelint-scss": "^4.3.0",
+        "ts-node": "^10.9.1"
     },
     "overrides": {
         "autoprefixer": "10.4.5"

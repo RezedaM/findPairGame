@@ -34,7 +34,7 @@ export function winScreen(container: HTMLElement | null) {
     const resultFrameTimeNum = document.createElement('h3')
     resultFrameTime.appendChild(resultFrameTimeNum)
     resultFrameTimeNum.classList.add('result_frame-timenum')
-    resultFrameTimeNum.textContent = window.application.timers
+    // resultFrameTimeNum.textContent = window.application.timers
 
     const resultFrameBtn = document.createElement('button')
     resultFrame.appendChild(resultFrameBtn)
@@ -45,7 +45,7 @@ export function winScreen(container: HTMLElement | null) {
         let gameWindow = document.querySelector('.game')
         const result = document.querySelector('.result')
         result!.innerHTML = ''
-        window.application.screens.mainScreen(gameWindow)
+        // window.application.screens.mainScreen(gameWindow)
     })
 }
 

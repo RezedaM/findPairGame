@@ -91,39 +91,39 @@ cardsMedium.push({
 // ]
 
 let cardsHard: Card[] = []
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/one.jpg',
     data: 'one',
 })
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/2.jpg',
     data: 'two',
 })
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/3.jpg',
     data: 'three',
 })
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/4.jpg',
     data: 'four',
 })
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/5.jpg',
     data: 'five',
 })
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/6.jpg',
     data: 'six',
 })
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/7.jpg',
     data: 'seven',
 })
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/8.jpg',
     data: 'eight',
 })
-cardsHard.push(    {
+cardsHard.push({
     img: './cards/9.jpg',
     data: 'nine',
 })
@@ -333,6 +333,7 @@ export function renderLvlScreen(container: HTMLElement | null) {
     function unflipCards() {
         lockBoard = true
         window.application.status = 'Loose'
+        window.application.lvl = []
         console.log('going to the loose screen')
         const result = document.querySelector('.result')
         window.application.screens.looseScreen(result)
@@ -373,18 +374,18 @@ export function renderLvlScreen(container: HTMLElement | null) {
     function time() {
         secs = Math.floor((Date.now() - now) / 1000)
         if (String(min).length !== 2 && min < 10) {
-            (min as unknown as string)= '0' + min
+            ;(min as unknown as string) = '0' + min
         }
         if (secs === 60) {
             now = Date.now()
             min++
             if (min < 10) {
                 // console.log(min)
-                (min as unknown as string) = '0' + min
+                ;(min as unknown as string) = '0' + min
             }
         }
         if (secs < 10) {
-            (secs as unknown as string) = '0' + secs
+            ;(secs as unknown as string) = '0' + secs
         }
         timerMin!.innerHTML = String(min)
         timerSek!.innerHTML = String(secs)
@@ -450,6 +451,7 @@ function winFunc() {
         })
         if (howMuch === howNow) {
             window.application.status = 'Win'
+            window.application.lvl = []
             console.log('go to win page')
             // clearInterval(callback)
             const result = document.querySelector('.result')

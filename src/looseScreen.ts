@@ -1,3 +1,8 @@
+import { debug } from 'console'
+import { flipCard } from './flipCardlogic'
+import { gameStart } from './gameStart'
+import { time } from './time'
+// import { flipCard} from './flipCardlogic'
 export function looseScreen(container: HTMLElement | null) {
     container!.style.zIndex = '2'
     const looseBlock = document.createElement('div')
@@ -41,11 +46,28 @@ export function looseScreen(container: HTMLElement | null) {
     resultFrameBtn.classList.add('result_frame-btn')
     resultFrameBtn.textContent = 'Играть снова'
 
+    // const gameFieldCard = document.querySelectorAll('.game_field-card')
+    // gameFieldCard.forEach((card) => card.removeEventListener('click', flipCard))
+
     resultFrameBtn.addEventListener('click', () => {
+        // const gameFieldCard = document.querySelectorAll('.game_field-card')
         let gameWindow = document.querySelector('.game')
         const result = document.querySelector('.result')
+        // let timer: any = window.clearInterval(time as any)
+        clearInterval(window.application.timerWin.timeout)
+        window.application.status = {}
+        window.application.lvl = []
+        window.application.timers = []
+        window.application.timerWin = []
+        window.application.timerTest = []
+        // gameFieldCard.forEach((card) => card.removeEventListener('click', flipCard, false))
         result!.innerHTML = ''
+        gameWindow!.innerHTML = ''
+        
+        // gameFieldCard.forEach((card) => card.removeEventListener('click', flipCard))
+        // div.removeEventListener('click', listener, false);
         window.application.screens.mainScreen(gameWindow)
+        gameStart()
     })
 }
 

@@ -7,8 +7,8 @@ let now = 0
 let min = 0
 export function time() {
     secs = Math.floor((Date.now() - now) / 1000)
-    if (String(min).length !== 2 && min < 10) {
-        (min as unknown as string) = '0' + min
+    if (String(min).length !== 2 && min < 10 && String(min).length < 3) {
+        ;(min as unknown as string) = '0' + min
     }
     if (secs === 60) {
         now = Date.now()
@@ -19,13 +19,32 @@ export function time() {
         }
     }
     if (secs < 10) {
-        (secs as unknown as string) = '0' + secs
+        ;(secs as unknown as string) = '0' + secs
     }
-    // timerMin!.innerHTML = String(min)
-    // timerSek!.innerHTML = String(secs)
-    // window.application.timers = min + '.' + secs
+    const timerMin = document.querySelector('.game_timer-minnum')
+    const timerSek = document.querySelector('.game_timer-seknum')
+    if (!timerMin) {
+        return
+    }
+
+    if (
+        window.application.status === 'Loose' ||
+        window.application.status === 'Win'
+    ) {
+        return
+    }
+    timerMin!.innerHTML = String(min)
+    timerSek!.innerHTML = String(secs)
+    window.application.timers = min + '.' + secs
     // if (window.application.timers === '03.00') {
     //     window.application.status = 'Loose'
     //     console.log('going to the loose screen')
     // }
+}
+
+export function timeGo() {
+    now = Date.now()
+    min = 0
+    let timer: number = window.setInterval(time)
+    window.application.timerTest['timerId'] = timer
 }

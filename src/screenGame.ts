@@ -1,5 +1,16 @@
 import { stringify } from 'postcss'
 import { templateEngine } from './template-engine'
+import { flipForFiveSecond } from './flipforFiveSecond'
+import { time, timeGo } from './time'
+import {
+    flipCard,
+    checkForMatch,
+    disableCards,
+    unflipCards,
+    resetBoard,
+    shuffle,
+} from './flipCardlogic'
+import { winFunc } from './winFunc'
 
 interface Card {
     img: String
@@ -282,137 +293,143 @@ export function renderLvlScreen(container: HTMLElement | null) {
             element.appendChild(templateEngine(cardBackTemplate(card)))
         })
     }
-    const gameFieldCard = document.querySelectorAll('.game_field-card')
-    const result = document.querySelector('.result')
+    // let hasFlippedCard = false
+    // let lockBoard = false
+    // let firstCard: HTMLElement | null, secondCard: HTMLElement | null
+    // const gameFieldCard = document.querySelectorAll('.game_field-card')
 
-    function flipForFiveSecond(callback: Function) {
-        gameFieldCard.forEach((element) => {
-            element.classList.add('flip')
-        })
-        setTimeout(() => {
-            // debugger
-            gameFieldCard.forEach((element) => {
-                element.classList.remove('flip')
-            })
-            let timeout = setInterval(callback, 1000)
-            window.application.timerWin['timeout'] = timeout
-            timeGo()
-        }, 5000)
-        // setInterval(callback(), 1000)
-    }
+    lvlScreenLogicStart()
+    // const gameFieldCard = document.querySelectorAll('.game_field-card')
+    // const result = document.querySelector('.result')
 
-    flipForFiveSecond(winFunc)
+    // function flipForFiveSecond(callback: Function) {
+    //     gameFieldCard.forEach((element) => {
+    //         element.classList.add('flip')
+    //     })
+    //     setTimeout(() => {
+    //         // debugger
+    //         gameFieldCard.forEach((element) => {
+    //             element.classList.remove('flip')
+    //         })
+    //         let timeout = setInterval(callback, 1000)
+    //         window.application.timerWin['timeout'] = timeout
+    //         timeGo()
+    //     }, 5000)
+    //     // setInterval(callback(), 1000)
+    // }
 
-    function flipCard(this: HTMLElement) {
-        if (lockBoard) return
-        if (this === firstCard) return
-        this.classList.add('flip')
+    // flipForFiveSecond(winFunc)
 
-        if (!hasFlippedCard) {
-            hasFlippedCard = true
-            firstCard = this
-            return
-        }
-        secondCard = this
-        // hasFlippedCard = false
+    // function flipCard(this: HTMLElement) {
+    //     if (lockBoard) return
+    //     if (this === firstCard) return
+    //     this.classList.add('flip')
 
-        checkForMatch()
-    }
+    //     if (!hasFlippedCard) {
+    //         hasFlippedCard = true
+    //         firstCard = this
+    //         return
+    //     }
+    //     secondCard = this
+    //     // hasFlippedCard = false
 
-    function checkForMatch() {
-        let isMatch = firstCard!.dataset.game === secondCard!.dataset.game
-        isMatch ? disableCards() : unflipCards()
-    }
+    //     checkForMatch()
+    // }
 
-    function disableCards() {
-        firstCard!.removeEventListener('click', flipCard)
-        secondCard!.removeEventListener('click', flipCard)
-        resetBoard()
-    }
+    // function checkForMatch() {
+    //     let isMatch = firstCard!.dataset.game === secondCard!.dataset.game
+    //     isMatch ? disableCards() : unflipCards()
+    // }
 
-    function unflipCards() {
-        lockBoard = true
-        window.application.status = 'Loose'
-        window.application.lvl = []
-        console.log('going to the loose screen')
-        const result = document.querySelector('.result')
-        window.application.screens.looseScreen(result)
-        // setTimeout(() => {
-        //     firstCard.classList.remove('flip')
-        //     secondCard.classList.remove('flip')
-        //     resetBoard()
-        // }, 1500)
-    }
+    // function disableCards() {
+    //     firstCard!.removeEventListener('click', flipCard)
+    //     secondCard!.removeEventListener('click', flipCard)
+    //     resetBoard()
+    // }
 
-    function resetBoard() {
-        ;[hasFlippedCard, lockBoard] = [false, false]
-        ;[firstCard, secondCard] = [null, null]
-    }
+    // function unflipCards() {
+    //     lockBoard = true
+    //     window.application.status = 'Loose'
+    //     window.application.lvl = []
+    //     console.log('going to the loose screen')
+    //     const result = document.querySelector('.result')
+    //     window.application.screens.looseScreen(result)
+    //     // setTimeout(() => {
+    //     //     firstCard.classList.remove('flip')
+    //     //     secondCard.classList.remove('flip')
+    //     //     resetBoard()
+    //     // }, 1500)
+    // }
 
-    ;(function shuffle() {
-        gameFieldCard.forEach((card: any) => {
-            let ramdomPos: number = Math.floor(Math.random() * 18)
-            card.style.order = ramdomPos
-        })
-    })()
+    // function resetBoard() {
+    //     ;[hasFlippedCard, lockBoard] = [false, false]
+    //     ;[firstCard, secondCard] = [null, null]
+    // }
+
+    // ;(function shuffle() {
+    //     gameFieldCard.forEach((card: any) => {
+    //         let ramdomPos: number = Math.floor(Math.random() * 18)
+    //         card.style.order = ramdomPos
+    //     })
+    // })()
 
     // flipForFiveSecond()
 
-    gameFieldCard.forEach((card) => card.addEventListener('click', flipCard))
+    // gameFieldCard.forEach((card) => card.addEventListener('click', flipCard))
 
-    let hasFlippedCard = false
-    let lockBoard = false
-    let firstCard: HTMLElement | null, secondCard: HTMLElement | null
+    // let hasFlippedCard = false
+    // let lockBoard = false
+    // let firstCard: HTMLElement | null, secondCard: HTMLElement | null
 
-    const timerMin = document.querySelector('.game_timer-minnum')
-    const timerSek = document.querySelector('.game_timer-seknum')
-    const timerButton = document.querySelector('.game_lvl-btn')
-    let timer: number = 0 // : NodeJS.Timeout
-    let secs = 0
-    let now = 0
-    let min = 0
-    function time() {
-        secs = Math.floor((Date.now() - now) / 1000)
-        if (String(min).length !== 2 && min < 10) {
-            ;(min as unknown as string) = '0' + min
-        }
-        if (secs === 60) {
-            now = Date.now()
-            min++
-            if (min < 10) {
-                // console.log(min)
-                ;(min as unknown as string) = '0' + min
-            }
-        }
-        if (secs < 10) {
-            ;(secs as unknown as string) = '0' + secs
-        }
-        timerMin!.innerHTML = String(min)
-        timerSek!.innerHTML = String(secs)
-        window.application.timers = min + '.' + secs
-        // if (window.application.timers === '03.00') {
-        //     window.application.status = 'Loose'
-        //     console.log('going to the loose screen')
-        // }
-    }
+    // const timerMin = document.querySelector('.game_timer-minnum')
+    // const timerSek = document.querySelector('.game_timer-seknum')
+    // const timerButton = document.querySelector('.game_lvl-btn')
+    // let timer: number = 0 // : NodeJS.Timeout
+    // let secs = 0
+    // let now = 0
+    // let min = 0
+    // function time() {
+    //     secs = Math.floor((Date.now() - now) / 1000)
+    //     if (String(min).length !== 2 && min < 10) {
+    //         ;(min as unknown as string) = '0' + min
+    //     }
+    //     if (secs === 60) {
+    //         now = Date.now()
+    //         min++
+    //         if (min < 10) {
+    //             // console.log(min)
+    //             ;(min as unknown as string) = '0' + min
+    //         }
+    //     }
+    //     if (secs < 10) {
+    //         ;(secs as unknown as string) = '0' + secs
+    //     }
+    //     timerMin!.innerHTML = String(min)
+    //     timerSek!.innerHTML = String(secs)
+    //     window.application.timers = min + '.' + secs
+    //     // if (window.application.timers === '03.00') {
+    //     //     window.application.status = 'Loose'
+    //     //     console.log('going to the loose screen')
+    //     // }
+    // }
 
-    let timeGo = function () {
-        now = Date.now()
-        min = 0
-        let timer: number = window.setInterval(time)
-    }
+    // let timeGo = function () {
+    //     now = Date.now()
+    //     min = 0
+    //     let timer: number = window.setInterval(time)
+    // }
     // timeGo()
 
-    timerButton!.addEventListener('click', () => {
-        let gameWindow = document.querySelector('.game')
-        window.application.timers = min + '.' + secs
-        let timer: any = window.clearInterval(time as any)
-        now = Date.now()
-        min = 0
-        timer = setInterval(time)
-        clearInterval(window.application.timerWin.timeout)
-        window.application.screens.screenGame(gameWindow)
-    })
+    // timerButton!.addEventListener('click', () => {
+    //     let gameWindow = document.querySelector('.game')
+    //     window.application.timers = min + '.' + secs
+    //     let timer: any = window.clearInterval(time as any)
+    //     now = Date.now()
+    //     min = 0
+    //     timer = setInterval(time)
+    //     clearInterval(window.application.timerWin.timeout)
+    //     window.application.screens.screenGame(gameWindow)
+    // })
 }
 
 // window.application.screens['screenGame'] = renderLvlScreen
@@ -439,27 +456,27 @@ export function renderLvlScreen(container: HTMLElement | null) {
 //     }, 1000)
 // }
 
-function winFunc() {
-    if (document.querySelector('.game_field')) {
-        let allCardsArray = document.querySelectorAll('.game_field-card')
-        let howMuch = allCardsArray.length
-        let howNow = 0
-        allCardsArray.forEach((element) => {
-            if (element.classList.contains('flip')) {
-                howNow++
-            }
-        })
-        if (howMuch === howNow) {
-            window.application.status = 'Win'
-            window.application.lvl = []
-            console.log('go to win page')
-            // clearInterval(callback)
-            const result = document.querySelector('.result')
-            window.application.screens.winScreen(result)
-            clearInterval(window.application.timerWin.timeout)
-        }
-    }
-}
+// function winFunc() {
+//     if (document.querySelector('.game_field')) {
+//         let allCardsArray = document.querySelectorAll('.game_field-card')
+//         let howMuch = allCardsArray.length
+//         let howNow = 0
+//         allCardsArray.forEach((element) => {
+//             if (element.classList.contains('flip')) {
+//                 howNow++
+//             }
+//         })
+//         if (howMuch === howNow) {
+//             window.application.status = 'Win'
+//             window.application.lvl = []
+//             console.log('go to win page')
+//             // clearInterval(callback)
+//             const result = document.querySelector('.result')
+//             window.application.screens.winScreen(result)
+//             clearInterval(window.application.timerWin.timeout)
+//         }
+//     }
+// }
 
 // setInterval(() => {
 //     // debugger
@@ -521,3 +538,57 @@ function winFunc() {
 //         }, 1000)
 //     )
 // }
+
+export function lvlScreenLogicStart() {
+    const gameFieldCard = document.querySelectorAll('.game_field-card')
+    const result = document.querySelector('.result')
+
+    flipForFiveSecond(winFunc)
+
+    // gameFieldCard.forEach((card) => card.addEventListener('click', flipCard))
+
+    let hasFlippedCard = false
+    let lockBoard = false
+    let firstCard: HTMLElement | null, secondCard: HTMLElement | null
+
+    const timerMin = document.querySelector('.game_timer-minnum')
+    const timerSek = document.querySelector('.game_timer-seknum')
+    const timerButton = document.querySelector('.game_lvl-btn')
+    // let timer: number = 0 // : NodeJS.Timeout
+    // let secs = 0
+    // let now = 0
+    // let min = 0
+
+    gameFieldCard!.forEach((card) => card.addEventListener('click', flipCard))
+
+    timerButton!.addEventListener('click', () => {
+        let timer: any = 0
+        let secs = 0
+        let now = 0
+        let min = 0
+        let gameWindow = document.querySelector('.game')
+        window.application.timers = min + '.' + secs
+
+        window.application.timerTest.forEach(function (element: any) {
+            clearInterval(element)
+        })
+
+        // window.application.timerTest.forEach(function (element: any) {
+        //     clearInterval(element)
+        // })
+
+        //   window.application.timers.forEach(element => {
+        //     clearInterval(element);
+        // }
+
+        // clearInterval(window.application.timerTest.timerId)
+
+        // window.application.timerTest
+        // window.clearInterval(timer as any)
+        now = Date.now()
+        min = 0
+        timer = setInterval(time)
+        clearInterval(window.application.timerWin.timeout)
+        window.application.screens.screenGame(gameWindow)
+    })
+}

@@ -112,5 +112,3 @@ export function mainScreen(container: HTMLElement) {
     result!.style.zIndex = '-1'
     container.appendChild(templateEngine(template))
 }
-
-// window.application.screens['mainScreen'] = mainScreen

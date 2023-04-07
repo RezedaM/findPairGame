@@ -15,8 +15,6 @@ export function flipCard(this: HTMLElement) {
         return
     }
     secondCard = this
-    // hasFlippedCard = false
-
     checkForMatch()
 }
 
@@ -38,15 +36,9 @@ export function unflipCards() {
     window.application.timerTest.timerId = 0
     const gameFieldCard = document.querySelectorAll('.game_field-card')
     gameFieldCard.forEach((card) => card.removeEventListener('click', flipCard))
-    // let timer: any = window.clearInterval(time as any)
     console.log('going to the loose screen')
     const result = document.querySelector('.result')
     window.application.screens.looseScreen(result)
-    // setTimeout(() => {
-    //     firstCard.classList.remove('flip')
-    //     secondCard.classList.remove('flip')
-    //     resetBoard()
-    // }, 1500)
 }
 
 export function resetBoard() {
@@ -55,6 +47,8 @@ export function resetBoard() {
 }
 
 export function shuffle() {
+    const gameFieldCard = document.querySelectorAll('.game_field-card')
+
     gameFieldCard.forEach((card: any) => {
         let ramdomPos: number = Math.floor(Math.random() * 18)
         card.style.order = ramdomPos

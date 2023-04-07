@@ -3,7 +3,7 @@ import { templateEngine } from './template-engine'
 import { mainScreen } from './mainScreen'
 import { cardFrontTemplate } from './screenGame'
 import { cardBackTemplate } from './screenGame'
-import { renderLvlScreen , lvlScreenLogicStart} from './screenGame'
+import { renderLvlScreen, lvlScreenLogicStart } from './screenGame'
 import { winScreen } from './winScreen'
 import { gameStart } from './gameStart'
 import { looseScreen } from './looseScreen'
@@ -42,7 +42,6 @@ window.application = {
 }
 
 window.application.screens['mainScreen'] = mainScreen
-// window.application.screens.mainScreen(gameWindow)
 window.application.screens['gameStart'] = gameStart
 gameStart()
 

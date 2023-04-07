@@ -11,13 +11,8 @@ export function winFunc() {
         })
         if (howMuch === howNow) {
             window.application.status = 'Win'
-            window.application.lvl = []
-            // let timer: any = window.clearInterval(time as any)
-            console.log('go to win page')
-            // clearInterval(callback)
             const result = document.querySelector('.result')
             window.application.screens.winScreen(result)
-            clearInterval(window.application.timerWin.timeout)
         }
     }
 }

@@ -59,10 +59,13 @@
   font-style: normal;
 }
 .body {
-  background: #004980;
+  background: url(./cards/backRepit.png), radial-gradient(ellipse at 15% 20%, #7f1bd7 0%, #6622cc 25%, #3141b1 50%, #3f7998 75%, #4b8178 100%) 75% 50%/110% 150%;
+  background-repeat: repeat, no-repeat;
+  background-size: auto, 200% 800%;
 }
 
 .game_sections {
+  margin: auto;
   position: relative;
   width: 1035px;
   height: 774px;
@@ -71,16 +74,13 @@
 .game {
   position: absolute;
   width: 1135px;
-  height: 774px;
-  background-image: url(./cards/backgroung.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 1000px;
   z-index: 1;
 }
 .game_lvl {
   position: absolute;
-  left: 40%;
-  top: 40%;
+  left: 36%;
+  top: 45%;
   width: 480px;
   height: 459px;
   background-color: #c2f5ff;
@@ -134,7 +134,7 @@
 .game_lvl-btn {
   width: 246px;
   height: 50px;
-  background: #7ac100;
+  background: #007ac1;
   border-radius: 12px;
   font-family: "statosskyeng";
   color: white;
@@ -191,6 +191,7 @@
   width: 978px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 35px;
 }
 .game_field {
   display: flex;
@@ -202,8 +203,7 @@
   justify-content: space-between;
 }
 .game_field-cardback {
-  width: 95px;
-  height: 133px;
+  width: 115px;
   position: absolute;
   border-radius: 5px;
   border-radius: 5px;
@@ -212,8 +212,7 @@
           backface-visibility: hidden;
 }
 .game_field-cardfront {
-  width: 95px;
-  height: 133px;
+  width: 115px;
   position: absolute;
   border-radius: 5px;
   border-radius: 5px;
@@ -223,27 +222,28 @@
   transform: rotateY(180deg);
 }
 .game_field-cardimg {
-  width: 95px;
-  height: 133px;
+  width: 120px;
 }
 .game_field-card {
   position: relative;
-  width: 95px;
-  height: 133px;
+  width: 115px;
   cursor: pointer;
   transform-style: preserve-3d;
   transition: transform 0.5s;
+  margin-bottom: 180px;
 }
 .game_playscreen {
   position: absolute;
-  left: 10%;
-  top: 10%;
+  left: 2%;
+  top: 8%;
 }
 
 .result {
   position: relative;
   width: 1035px;
   height: 774px;
+  left: -4%;
+  top: 5%;
 }
 .result_field {
   position: absolute;
@@ -351,6 +351,62 @@
   transition: 0.1s;
 }
 
+.game_lvl-inputs:checked + label {
+  color: #7ac100;
+  font-size: 80px;
+  border-color: brown !important;
+}
+
+.changeLvl {
+  color: #ffffff;
+  font-size: 90px;
+  border-color: brown;
+  background-color: #a5adff;
+  border-radius: 13px;
+}
+
 .active {
   color: aliceblue;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #fff;
+  font-size: 65px;
+  font-family: "stratosskyengweb-light";
+  letter-spacing: -7px;
+  color: #c2f5ff;
+  text-shadow: 0px 0px 10px rgb(229, 60, 255);
+}
+
+span {
+  -webkit-animation: glitch 1s linear infinite;
+          animation: glitch 1s linear infinite;
+}
+
+@-webkit-keyframes glitch {
+  2%, 64% {
+    transform: translate(10px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-10px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(15deg);
+  }
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(10px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-10px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(15deg);
+  }
 }/*# sourceMappingURL=style.css.map */

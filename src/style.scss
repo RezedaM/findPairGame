@@ -82,7 +82,7 @@
 .game {
     position: absolute;
     width: 1135px;
-    height: 1000px;
+    height: 800px;
     z-index: 1;
 
     &_lvl {
@@ -210,6 +210,7 @@
         width: 978px;
         perspective: 1000px;
         justify-content: space-between;
+        margin-bottom: 40px;
         &-cardback {
             width: 115px;
             // height: 133px;

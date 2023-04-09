@@ -74,7 +74,7 @@
 .game {
   position: absolute;
   width: 1135px;
-  height: 1000px;
+  height: 800px;
   z-index: 1;
 }
 .game_lvl {
@@ -201,6 +201,7 @@
   width: 978px;
   perspective: 1000px;
   justify-content: space-between;
+  margin-bottom: 40px;
 }
 .game_field-cardback {
   width: 115px;

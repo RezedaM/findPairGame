@@ -1,3 +1,7 @@
+import { debug } from 'console'
+import { flipCard } from './flipCardlogic'
+import { gameStart } from './gameStart'
+import { time } from './time'
 export function looseScreen(container: HTMLElement | null) {
     container!.style.zIndex = '2'
     const looseBlock = document.createElement('div')
@@ -42,11 +46,19 @@ export function looseScreen(container: HTMLElement | null) {
     resultFrameBtn.textContent = 'Играть снова'
 
     resultFrameBtn.addEventListener('click', () => {
+        window.application.timers = '00' + '.' + '00'
+        clearInterval(window.application.timerTest.timerId)
         let gameWindow = document.querySelector('.game')
         const result = document.querySelector('.result')
+        clearInterval(window.application.timerWin.timeout)
+        window.application.status = ''
+        window.application.lvl = []
+        window.application.timers = []
+        window.application.timerWin = []
+        window.application.timerTest = []
         result!.innerHTML = ''
+        gameWindow!.innerHTML = ''
         window.application.screens.mainScreen(gameWindow)
+        gameStart()
     })
 }
-
-// window.application.screens['looseScreen'] = looseScreen
